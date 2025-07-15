@@ -61,8 +61,8 @@ Ce projet est un défi technique réalisé dans le cadre du processus de recrute
 
 >### Troisième étape : Affecter des joueurs à une équipe (Niveau intermédiaire) (feat #3)
 >
->- [ ]  Un dropdown permet de sélectionner une équipe précédemment créer dans lequel intégrer le joueur
->- [ ]  11 *joueurs maximum par équipe*
+>- [x]  Un dropdown permet de sélectionner une équipe précédemment créer dans lequel intégrer le joueur
+>- [x]  11 *joueurs maximum par équipe*
 
 
 >### Quatrième étape : Le tournois (Niveau confirmé) (feat #4)

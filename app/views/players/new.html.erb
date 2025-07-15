@@ -12,6 +12,11 @@
   </div>
 
   <div>
+    <%= form.label :team_id, "Equipe" %><br>
+    <%= form.collection_select :team_id, @teams, :id, :name, include_blank: "Aucune équipe" %>
+  </div>
+
+  <div>
     <%= form.submit "Créer" %>
   </div>
 <% end %>

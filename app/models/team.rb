@@ -1,4 +1,5 @@
 class Team < ApplicationRecord
+  has_many :players, dependent: :nullify
 # nom obligatoire, unique, max 50 caracteres, lettres, chiffres et espaces
   validates :name, presence: true, length: { maximum: 50 }
   validates :name, uniqueness: true

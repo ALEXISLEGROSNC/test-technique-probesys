@@ -7,6 +7,7 @@ class PlayersController < ApplicationController
     # affichage du formulaire de creation d'un joueur
     def new
         @roles = Role.all
+        @teams = Team.all
         @player = Player.new
     end
 
@@ -17,6 +18,7 @@ class PlayersController < ApplicationController
             redirect_to @player, notice: 'Joueur créé avec succès.'
         else
             @roles = Role.all
+            @teams = Team.all
             render :new
         end
     end
@@ -37,6 +39,6 @@ class PlayersController < ApplicationController
 
     # n'autoriser que les parametres name et role_id (securite)
     def player_params
-        params.require(:player).permit(:name, :role_id)
+        params.require(:player).permit(:name, :role_id, :team_id)
     end
 end
