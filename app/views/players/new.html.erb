@@ -1,0 +1,17 @@
+<h1>Nouveau joueur</h1>
+
+<%= form_with model: @player, url: players_path do |form| %>
+  <div>
+    <%= form.label :name, "Nom" %><br>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :role_id, "Rôle" %><br>
+    <%= form.collection_select :role_id, @roles, :id, :name %>
+  </div>
+
+  <div>
+    <%= form.submit "Créer" %>
+  </div>
+<% end %>

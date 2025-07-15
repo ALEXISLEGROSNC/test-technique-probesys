@@ -1,0 +1,28 @@
+<h1>Joueurs</h1>
+<div>
+  <%= link_to new_player_path, class: "btn btn-primary m-1 p-1" do %>
+  Créer <i class="fa-solid fa-plus"></i>
+  <% end %>
+</div>
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+            <th>Nom</th>
+            <th>Rôle</th>
+            <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @players.each do |player| %>
+            <tr>
+                <td><%= link_to player.name, player_path(player) %></td>
+                <td><%= player.role.name %></td>
+                <td>
+                <%= button_to 'Supprimer', player_path(player), method: :delete, class: "btn btn-danger",  onclick: "return confirm('Êtes-vous sûr ?');" %>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

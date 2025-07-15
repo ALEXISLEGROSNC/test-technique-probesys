@@ -2,16 +2,16 @@
 
 <%= form_with model: @team do |form| %>
   <div>
-    <%= form.label :name %><br>
+    <%= form.label :name, "Nom"  %><br>
     <%= form.text_field :name %>
   </div>
 
   <div>
-    <%= form.label :city %><br>
+    <%= form.label :city, "Ville" %><br>
     <%= form.text_field :city %>
   </div>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit "Créer" %>
   </div>
 <% end %>

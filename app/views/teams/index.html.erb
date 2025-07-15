@@ -19,7 +19,7 @@
                 <td><%= link_to team.name, team_path(team) %></td>
                 <td><%= team.city %></td>
                 <td>
-                <%= link_to 'Supprimer', team_path(team), method: :delete, data: { confirm: 'Etes vous sûr ?' }, class: "btn btn-danger" %>
+                <%= button_to 'Supprimer', team_path(team), method: :delete, class: "btn btn-danger",  onclick: "return confirm('Êtes-vous sûr ?');" %>
                 </td>
             </tr>
             <% end %>

@@ -14,7 +14,7 @@ class TeamsController < ApplicationController
     def create
         @team = Team.new(team_params)
         if @team.save
-            redirect_to @team
+            redirect_to @team, notice: 'Joueur créé avec succès.'
         else
             render :new
         end
@@ -25,6 +25,7 @@ class TeamsController < ApplicationController
         @team = Team.find(params[:id])
     end
 
+    # suppression d'une équipe
     def destroy
         @team = Team.find(params[:id])
         @team.destroy
