@@ -11,4 +11,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  Rails.application.routes.draw do
+    root 'teams#index' # la page de base de l'app est la liste des equipes
+    resources :teams
+  end
+
 end

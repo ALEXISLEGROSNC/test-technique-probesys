@@ -44,35 +44,35 @@ Ce projet est un défi technique réalisé dans le cadre du processus de recrute
 <summary> <strong>🛠️ Développement de la base de l'application </strong>(voir le détail)</summary>
 
 
->### Première étape : Créer une équipe (Niveau basique)
->- [ ]  L'équipe doit disposer d'un nom. (Nombre de caractère maximum 50)
->- [ ]  L'équipe doit disposer d'une ville.
->- [ ]  Le routing est correct.
->- [ ]  Le model est correct.
->- [ ]  Le controller est correct.
+>### Première étape : Créer une équipe (Niveau basique) (feat #1)
+>- [x]  L'équipe doit disposer d'un nom. (Nombre de caractère maximum 50)
+>- [x]  L'équipe doit disposer d'une ville.
+>- [x]  Le routing est correct.
+>- [x]  Le model est correct.
+>- [x]  Le controller est correct.
 
 
->### Deuxième étape : Créer les joueurs (Niveau basique)
+>### Deuxième étape : Créer les joueurs (Niveau basique) (feat #2)
 >
 >- [ ]  Un joueur doit avoir un nom
 >- [ ]  Un joueur doit avoir un poste (Heal/Tank/DPS)
 >- [ ]  Le poste est selectable dans un dropdown (liste déroulante)
 
 
->### Troisième étape : Affecter des joueurs à une équipe (Niveau intermédiaire)
+>### Troisième étape : Affecter des joueurs à une équipe (Niveau intermédiaire) (feat #3)
 >
 >- [ ]  Un dropdown permet de sélectionner une équipe précédemment créer dans lequel intégrer le joueur
 >- [ ]  11 *joueurs maximum par équipe*
 
 
->### Quatrième étape : Le tournois (Niveau confirmé)
+>### Quatrième étape : Le tournois (Niveau confirmé) (feat #4)
 >
 >- [ ]  Un bouton permet de créer et peupler automatiquement 8 équipes de 11 joueurs
 >- [ ]  Chaque équipe affronte une seule et unique fois une autre équipe (Attribuer un score aléatoire suffit)
 >- [ ]  Le résultat des matchs est affiché correctement (voir le tableau ci-dessus pour la méthode de calcul)
 
 
->### Dockeriser le projet
+>### Dockeriser le projet (feat #4)
 >
 >- [ ] Créer un docker pour faire tourner votre projet
 
@@ -83,9 +83,7 @@ Ce projet est un défi technique réalisé dans le cadre du processus de recrute
 <details>
 <summary><strong>🚀 Développement de propositions pour améliorer le projet </strong>(voir le détail)</summary>
 
-
- >[à compléter]
-
+>[à compléter]
 
 </details>
 

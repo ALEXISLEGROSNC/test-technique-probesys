@@ -1,0 +1,28 @@
+<h1>Equipes</h1>
+<div>
+  <%= link_to new_team_path, class: "btn btn-primary m-1 p-1" do %>
+  Créer <i class="fa-solid fa-plus"></i>
+  <% end %>
+</div>
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+            <th>Nom</th>
+            <th>Ville</th>
+            <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @teams.each do |team| %>
+            <tr>
+                <td><%= link_to team.name, team_path(team) %></td>
+                <td><%= team.city %></td>
+                <td>
+                <%= link_to 'Supprimer', team_path(team), method: :delete, data: { confirm: 'Etes vous sûr ?' }, class: "btn btn-danger" %>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>

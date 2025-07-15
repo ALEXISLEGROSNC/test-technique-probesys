@@ -1,0 +1,17 @@
+<h1>Nouvelle équipe</h1>
+
+<%= form_with model: @team do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :city %><br>
+    <%= form.text_field :city %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
