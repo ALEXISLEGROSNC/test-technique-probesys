@@ -54,9 +54,9 @@ Ce projet est un défi technique réalisé dans le cadre du processus de recrute
 
 >### Deuxième étape : Créer les joueurs (Niveau basique) (feat #2)
 >
->- [ ]  Un joueur doit avoir un nom
->- [ ]  Un joueur doit avoir un poste (Heal/Tank/DPS)
->- [ ]  Le poste est selectable dans un dropdown (liste déroulante)
+>- [x]  Un joueur doit avoir un nom
+>- [x]  Un joueur doit avoir un poste (Heal/Tank/DPS)
+>- [x]  Le poste est selectable dans un dropdown (liste déroulante)
 
 
 >### Troisième étape : Affecter des joueurs à une équipe (Niveau intermédiaire) (feat #3)
