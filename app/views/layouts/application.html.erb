@@ -32,8 +32,48 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
   </head>
-
   <body>
-    <%= yield %>
-  </body>
+  
+  <div class="container-fluid">
+    <div class="row">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Test Probesys</a>
+        </div>
+      </nav>
+    </div>
+
+    <div class="row">
+      <div class="col-auto bg-light p-0 m-0 shadow" style="height: calc(100vh - 56px);">
+        <div class="p-3">
+          <h4 class="d-none d-sm-inline-block">Menu</h4>
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <%= link_to root_path, class: "nav-link active p-0 mx-0 my-2" do %>
+                <i class="fas fa-home me-2"></i> <span class="d-none d-sm-inline-block">Accueil</span>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to teams_path, class: "nav-link active p-0 mx-0 my-2" do %>
+                <i class="fas fa-users me-2"></i> <span class="d-none d-sm-inline-block">Equipes</span>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <%= link_to players_path, class: "nav-link active p-0 mx-0 my-2" do %>
+                <i class="fas fa-user me-2"></i> <span class="d-none d-sm-inline-block">Joueurs</span>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col p-2">
+        <div class="card shadow p-3">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
 </html>
