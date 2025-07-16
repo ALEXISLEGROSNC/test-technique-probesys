@@ -67,7 +67,7 @@ Ce projet est un défi technique réalisé dans le cadre du processus de recrute
 
 >### Quatrième étape : Le tournois (Niveau confirmé) (feat #4)
 >
->- [ ]  Un bouton permet de créer et peupler automatiquement 8 équipes de 11 joueurs
+>- [x]  Un bouton permet de créer et peupler automatiquement 8 équipes de 11 joueurs
 >- [ ]  Chaque équipe affronte une seule et unique fois une autre équipe (Attribuer un score aléatoire suffit)
 >- [ ]  Le résultat des matchs est affiché correctement (voir le tableau ci-dessus pour la méthode de calcul)
 

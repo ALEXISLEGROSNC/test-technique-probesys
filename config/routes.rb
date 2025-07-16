@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "tournoi/index"
   get "home/index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -14,11 +15,13 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   Rails.application.routes.draw do
+  get "tournoi/index"
   get "home/index"
     root 'home#index'
     post 'populate', to: 'home#populate', as: 'populate_home_index' # creation des 8 équipes avec 11 joueurs chacune
     resources :teams
     resources :players
+    resources :tournoi
   end
 
 end
