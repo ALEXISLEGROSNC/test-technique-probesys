@@ -1,2 +1,21 @@
-<h1><i class="fas fa-home me-2"></i> Accueil</h1>
-<p>page d'accueil</p>
+<div class="container my-3">
+  <div class="row">
+    <div class="col-md-12">
+      <h1><i class="fas fa-home me-2"></i> Accueil</h1>
+      <p class="lead">
+        Organisez des tournois entre équipes de 11 joueurs&nbsp;! 
+      </p>
+      <p>
+        Cette application vous permet de créer des équipes, d'ajouter des joueurs et de simuler des tournois. 
+        Vous pouvez facilement gérer les équipes et les joueurs, et visualiser les résultats des matchs.
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-md-12 text-center">
+      <h2>Prêt à commencer ?</h2>
+      <p>Cliquez sur le bouton ci-dessous pour peupler automatiquement 8 équipes de 11 joueurs chacune.</p>
+      <%= button_to 'Peupler Automatiquement', populate_home_index_path, method: :post, class: 'btn btn-primary btn-lg' %>
+    </div>
+  </div>
+</div>
