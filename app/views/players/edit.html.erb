@@ -1,0 +1,22 @@
+<h1>Modification joueur</h1>
+
+<%= form_with model: @player, url: player_path(@player), method: :patch do |form| %>
+  <div>
+    <%= form.label :name, "Nom" %><br>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :role_id, "Rôle" %><br>
+    <%= form.collection_select :role_id, @roles, :id, :name %>
+  </div>
+
+  <div>
+    <%= form.label :team_id, "Equipe" %><br>
+    <%= form.collection_select :team_id, @teams, :id, :name, include_blank: "Aucune équipe" %>
+  </div>
+
+  <div>
+    <%= form.submit "Modifier" %>
+  </div>
+<% end %>

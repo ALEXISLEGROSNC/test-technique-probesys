@@ -1,0 +1,17 @@
+<h1>Modification équipe</h1>
+
+<%= form_with model: @team, url: team_path(@team), method: :patch do |form| %>
+  <div>
+    <%= form.label :name, "Nom"  %><br>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :city, "Ville" %><br>
+    <%= form.text_field :city %>
+  </div>
+
+  <div>
+    <%= form.submit "Modifier" %>
+  </div>
+<% end %>

@@ -23,16 +23,34 @@ class PlayersController < ApplicationController
         end
     end
 
-    # affichage d'une équipe
+    # affichage d'un joueur (redirection automatique vers la page d'édition)
     def show
         @player = Player.find(params[:id])
+        redirect_to edit_player_path(@team)
     end
 
-    # suppression d'une équipe
+    # suppression d'un joueur'
     def destroy
         @player = Player.find(params[:id])
         @player.destroy
         redirect_to players_path, notice: 'Le joueur a bien été supprimé.'
+    end
+
+    # affichage du formulaire d'edition
+    def edit
+        @player = Player.find(params[:id])
+        @roles = Role.all
+        @teams = Team.all
+    end
+
+    # mise à jour
+    def update
+        @player = Player.find(params[:id])
+        if @player.update(player_params)
+            redirect_to @player, notice: 'Joueur mis à jour avec succès.'
+        else
+            render :edit
+        end
     end
 
     private

@@ -69,6 +69,12 @@
 
       <div class="col p-2">
         <div class="card shadow p-3">
+          <% if notice %>
+              <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                <i class="fa-solid fa-circle-info"></i> <%= notice %>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+          <% end %>
           <%= yield %>
         </div>
       </div>

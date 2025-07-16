@@ -20,9 +20,10 @@ class TeamsController < ApplicationController
         end
     end
 
-    # affichage d'une équipe
+    # affichage d'une équipe (redirection automatique vers la page d'édition)
     def show
         @team = Team.find(params[:id])
+        redirect_to edit_team_path(@team)
     end
 
     # suppression d'une équipe
@@ -30,6 +31,21 @@ class TeamsController < ApplicationController
         @team = Team.find(params[:id])
         @team.destroy
         redirect_to teams_path, notice: 'L\'équipe a bien été supprimée.'
+    end
+
+    # affichage du formulaire d'edition
+    def edit
+        @team = Team.find(params[:id])
+    end
+
+    # mise à jour
+    def update
+        @team = Team.find(params[:id])
+        if @team.update(team_params)
+            redirect_to @team, notice: 'Équipe mise à jour avec succès.'
+        else
+            render :edit
+        end
     end
 
     private
