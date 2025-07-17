@@ -1,4 +1,7 @@
 class PlayersController < ApplicationController
+    before_action :set_player, only: [:show, :edit, :update, :destroy]
+    before_action :load_roles_and_teams, only: [:show, :edit, :new, :create]
+
     # affichage de la liste des équipes
     def index
         @players = Player.all
@@ -6,8 +9,6 @@ class PlayersController < ApplicationController
 
     # affichage du formulaire de creation d'un joueur
     def new
-        @roles = Role.all
-        @teams = Team.all
         @player = Player.new
     end
 
@@ -17,43 +18,47 @@ class PlayersController < ApplicationController
         if @player.save
             redirect_to @player, notice: 'Joueur créé avec succès.'
         else
-            @roles = Role.all
-            @teams = Team.all
             render :new
         end
     end
 
     # affichage d'un joueur (redirection automatique vers la page d'édition)
     def show
-        @player = Player.find(params[:id])
-        redirect_to edit_player_path(@team)
+        render :edit
     end
 
-    # suppression d'un joueur'
-    def destroy
-        @player = Player.find(params[:id])
-        @player.destroy
-        redirect_to players_path, notice: 'Le joueur a bien été supprimé.'
-    end
 
     # affichage du formulaire d'edition
     def edit
-        @player = Player.find(params[:id])
-        @roles = Role.all
-        @teams = Team.all
     end
 
     # mise à jour
     def update
-        @player = Player.find(params[:id])
         if @player.update(player_params)
             redirect_to @player, notice: 'Joueur mis à jour avec succès.'
         else
-            render :edit
+            redirect_to edit_player_path(@player), alert: 'Erreur lors de la mise à jour du joueur.'
         end
+    end
+    
+    # suppression d'un joueur'
+    def destroy
+        @player.destroy
+        redirect_to players_path, notice: 'Le joueur a bien été supprimé.'
     end
 
     private
+
+    # before action
+    def set_player
+        @player = Player.find(params[:id])
+    end
+    
+    # before action
+    def load_roles_and_teams
+        @roles = Role.all
+        @teams = Team.all
+    end
 
     # n'autoriser que les parametres name et role_id (securite)
     def player_params

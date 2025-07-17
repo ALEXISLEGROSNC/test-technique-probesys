@@ -12,10 +12,15 @@ class Player < ApplicationRecord
   
   private
   
-  def team_player_limit
-    if team && team.players.count >= 11
-      errors.add(:team, "ne peut pas avoir plus de 11 joueurs")
-    end
+def team_player_limit
+  return unless team # si il n'y a pas d'equipe associee , pas besoin d'aller plus loin
+
+  max_count = 11
+  players_count = team.players.where.not(id: self.id).count # compte en excluant le joueur actuel
+
+  if players_count >= max_count
+    errors.add(:team, "ne peut pas avoir plus de #{max_count} joueurs")
   end
+end
 
 end
