@@ -1,0 +1,57 @@
+<h1>Classement du tournoi</h1>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Equipe</th>
+      <th>Points</th>
+      <th>Kill reçus</th>
+      <th>Kill marqués</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @ranking.each do |r| %>
+      <tr>
+        <td><%= r[:team].name %></td>
+        <td><%= r[:points] %></td>
+        <td><%= r[:kills_against] %></td>
+        <td><%= r[:kills_for] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<a href="javascript:exportResultsToCSV()"class="btn btn-success mt-3 ms-2">Exporter en CSV <i class="fa-solid fa-table"></i></a>
+<span class="d-none" id="csvFileName">classement_tournoi</span>
+<script>
+// pour gérer les caracteres speciaux / accents dans les chaînes qui ne ressortent pas bien
+function normalizeText(str) {
+  return str.normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "") // retire les accents
+            .replace(/[^a-zA-Z0-9 \-]/g, "") // retire les caractères spéciaux (sauf espace et tiret)
+            .replace(/ç/g, "c")
+            .replace(/Ç/g, "C");
+}
+
+function exportResultsToCSV(){
+  const table = document.querySelector('table');
+  let csv = [];
+  for (let row of table.rows) {
+    let rowData = [];
+    for (let cell of row.cells) {
+      let text = normalizeText(cell.innerText.replace(/"/g, '""'));
+      rowData.push('"' + text + '"');
+    }
+    csv.push(rowData.join(','));
+  }
+  let csvContent = csv.join('\n');
+  let blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+  let link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  var fileName = document.getElementById("csvFileName").innerText;
+  link.download = fileName+".csv";
+  link.style.display = "none";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+</script>

@@ -68,8 +68,8 @@ Ce projet est un défi technique réalisé dans le cadre du processus de recrute
 >### Quatrième étape : Le tournois (Niveau confirmé) (feat #4)
 >
 >- [x]  Un bouton permet de créer et peupler automatiquement 8 équipes de 11 joueurs
->- [ ]  Chaque équipe affronte une seule et unique fois une autre équipe (Attribuer un score aléatoire suffit)
->- [ ]  Le résultat des matchs est affiché correctement (voir le tableau ci-dessus pour la méthode de calcul)
+>- [x]  Chaque équipe affronte une seule et unique fois une autre équipe (Attribuer un score aléatoire suffit)
+>- [x]  Le résultat des matchs est affiché correctement (voir le tableau ci-dessus pour la méthode de calcul)
 
 
 >### Dockeriser le projet (feat #4)
@@ -82,6 +82,16 @@ Ce projet est un défi technique réalisé dans le cadre du processus de recrute
 
 <details>
 <summary><strong>🚀 Développement de propositions pour améliorer le projet </strong>(voir le détail)</summary>
+
+>### Divers
+>- [x]  des alertes et notices 'discardables'
+>- [x]  Un bouton permet d'exporter les résultats du tournoi en csv
+
+>### Ergonomie
+>- [x]  front-end soigné et 'responsive'
+>- [ ]  vignette d'options rapides
+>- [ ]  night mode
+>- [ ]  **la langue peut être changée au moins entre anglais et français sans rechargement de la page et avec persistence d'une page à l'autre**
 
 >[à compléter]
 

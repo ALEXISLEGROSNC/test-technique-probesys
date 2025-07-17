@@ -42,4 +42,36 @@ class HomeController < ApplicationController
     redirect_to root_path, notice: '8 équipes avec 11 joueurs chacune ont été créées avec succès.'
   end
 
+  def tournament # Simulation de tournoi SANS PERSISTENCE EN BASE DE DONNÉES
+    
+    teams = Team.all.to_a
+    results = {}
+    teams.each do |team|
+      results[team.id] = { team: team, points: 0, kills_for: 0, kills_against: 0 }
+    end
+
+    # chaque équipe rencontre chaque autre une seule fois avec combination(2)
+    teams.combination(2).each do |team_a, team_b|
+      kills_a = rand(0..5)
+      kills_b = rand(0..5)
+
+      if kills_a > kills_b
+        results[team_a.id][:points] += 3
+      elsif kills_a < kills_b
+        results[team_b.id][:points] += 3
+      else
+        results[team_a.id][:points] += 1
+        results[team_b.id][:points] += 1
+      end
+
+      # update des stats
+      results[team_a.id][:kills_for] += kills_a
+      results[team_a.id][:kills_against] += kills_b
+      results[team_b.id][:kills_for] += kills_b
+      results[team_b.id][:kills_against] += kills_a
+    end
+
+    # d'abord par points , et ensuite par kills
+    @ranking = results.values.sort_by { |r| [-r[:points], -r[:kills_for]] }
+  end
 end

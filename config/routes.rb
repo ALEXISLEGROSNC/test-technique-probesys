@@ -15,13 +15,12 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   Rails.application.routes.draw do
-  get "tournoi/index"
   get "home/index"
     root 'home#index'
     post 'populate', to: 'home#populate', as: 'populate_home_index' # creation des 8 équipes avec 11 joueurs chacune
+    post 'tournament', to: 'home#tournament', as: :tournament
     resources :teams
     resources :players
-    resources :tournoi
   end
 
 end
