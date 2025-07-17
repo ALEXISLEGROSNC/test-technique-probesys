@@ -20,7 +20,11 @@ default: &default
 
 development:
   <<: *default
-  database: probesys_development
+  database: <%= ENV['DATABASE_NAME'] || 'probesys_development' %>
+  username: <%= ENV['DATABASE_USERNAME'] || 'root' %>
+  password: <%= ENV['DATABASE_PASSWORD'] || 'root' %>
+  host: <%= ENV['DATABASE_HOST'] || 'localhost' %>
+  port: 3306
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
