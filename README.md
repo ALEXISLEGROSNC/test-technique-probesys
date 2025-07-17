@@ -74,7 +74,7 @@ Ce projet est un défi technique réalisé dans le cadre du processus de recrute
 
 >### Dockeriser le projet (feat #4)
 >
->- [ ] Créer un docker pour faire tourner votre projet
+>- [x] Créer un docker pour faire tourner votre projet
 
 
 </details>
@@ -93,6 +93,9 @@ Ce projet est un défi technique réalisé dans le cadre du processus de recrute
 >- [ ]  night mode
 >- [ ]  **la langue peut être changée au moins entre anglais et français sans rechargement de la page et avec persistence d'une page à l'autre**
 
+>### Technique
+>- [x]  mettre en place un volume pour ne pas avoir à "re dockeriser" le projet à chaque modification
+
 >[à compléter]
 
 </details>
@@ -108,12 +111,13 @@ Ce projet est un défi technique réalisé dans le cadre du processus de recrute
 *ℹ️ Ce projet a été développé sous windows avec wsl*
  
  ### Etapes
- 
- - <a href="https://guides.rubyonrails.org/install_ruby_on_rails.html">installer Ruby et Rails</a> en suivant le guide officiel
- - installer MariaDB <code>sudo apt install mariadb-server</code>
- - verifier la config dans **config/database.yml**
- - <code> rails db:create </code>
- - <code> rails db:migrate </code>
+
+ - Installer [Docker Desktop](https://www.docker.com/products/docker-desktop) sur la machine.
+ - Cloner ce dépôt : <code>git clone 'https://github.com/ALEXISLEGROSNC/test-technique-probesys.git'</code>
+ - Lancer les conteneurs <code>docker-compose up --build</code>
+ - Accéder à la solution <a href="http://localhost:3000">http://localhost:3000</a>
+ - Il y a un volume mis en place dans le docker-compose, donc le code peut être modifié sans avoir à "re-build docker" !
+ - **Lancer les tournois !**
 
  ### Versions
 
