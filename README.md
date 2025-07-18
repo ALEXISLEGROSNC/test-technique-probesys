@@ -91,14 +91,14 @@ Ce projet est un défi technique réalisé dans le cadre du processus de recrute
 >- [x]  front-end soigné et 'responsive'
 >- [ ]  vignette d'options rapides
 >- [ ]  night mode
->- [ ]  **la langue peut être changée au moins entre anglais et français sans rechargement de la page et avec persistence d'une page à l'autre**
+>- [ ]  possibilité de **changer la langue au moins entre anglais et français sans rechargement de la page et avec persistence** d'une page à l'autre
 
 >### Technique
 >- [x]  mettre en place un volume pour ne pas avoir à "re dockeriser" le projet à chaque modification
->-
+>- [x]  Repertorier des actions usuelles dans un **Makefile** pour améliorer l'experience de dev + **documentation automatique** (help , helplin , helpwin)
 >- [ ]  **analyse statique**
->- [ ]  **boucle CI/CD github**
->- [ ]  **tests Unitaires**
+>- [ ]  boucle **CI/CD** GitHub
+>- [ ]  **tests** unitaires
 
 
 >[à compléter]
