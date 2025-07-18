@@ -1,5 +1,4 @@
 class TeamsController < ApplicationController
-
     # affichage de la liste des équipes
     def index
         @teams = Team.all
@@ -14,7 +13,7 @@ class TeamsController < ApplicationController
     def create
         @team = Team.new(team_params)
         if @team.save
-            redirect_to @team, notice: 'Joueur créé avec succès.'
+            redirect_to @team, notice: "Joueur créé avec succès."
         else
             render :new
         end
@@ -30,7 +29,7 @@ class TeamsController < ApplicationController
     def destroy
         @team = Team.find(params[:id])
         @team.destroy
-        redirect_to teams_path, notice: 'L\'équipe a bien été supprimée.'
+        redirect_to teams_path, notice: "L'équipe a bien été supprimée."
     end
 
     # affichage du formulaire d'edition
@@ -42,7 +41,7 @@ class TeamsController < ApplicationController
     def update
         @team = Team.find(params[:id])
         if @team.update(team_params)
-            redirect_to @team, notice: 'Équipe mise à jour avec succès.'
+            redirect_to @team, notice: "Équipe mise à jour avec succès."
         else
             render :edit
         end
@@ -54,5 +53,4 @@ class TeamsController < ApplicationController
     def team_params
         params.require(:team).permit(:name, :city)
     end
-
 end

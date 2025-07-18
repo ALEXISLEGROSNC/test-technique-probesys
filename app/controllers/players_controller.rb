@@ -1,6 +1,6 @@
 class PlayersController < ApplicationController
-    before_action :set_player, only: [:show, :edit, :update, :destroy]
-    before_action :load_roles_and_teams, only: [:show, :edit, :new, :create]
+    before_action :set_player, only: [ :show, :edit, :update, :destroy ]
+    before_action :load_roles_and_teams, only: [ :show, :edit, :new, :create ]
 
     # affichage de la liste des équipes
     def index
@@ -16,7 +16,7 @@ class PlayersController < ApplicationController
     def create
         @player = Player.new(player_params)
         if @player.save
-            redirect_to @player, notice: 'Joueur créé avec succès.'
+            redirect_to @player, notice: "Joueur créé avec succès."
         else
             render :new
         end
@@ -35,16 +35,16 @@ class PlayersController < ApplicationController
     # mise à jour
     def update
         if @player.update(player_params)
-            redirect_to @player, notice: 'Joueur mis à jour avec succès.'
+            redirect_to @player, notice: "Joueur mis à jour avec succès."
         else
-            redirect_to edit_player_path(@player), alert: 'Erreur lors de la mise à jour du joueur.'
+            redirect_to edit_player_path(@player), alert: "Erreur lors de la mise à jour du joueur."
         end
     end
-    
+
     # suppression d'un joueur'
     def destroy
         @player.destroy
-        redirect_to players_path, notice: 'Le joueur a bien été supprimé.'
+        redirect_to players_path, notice: "Le joueur a bien été supprimé."
     end
 
     private
@@ -53,7 +53,7 @@ class PlayersController < ApplicationController
     def set_player
         @player = Player.find(params[:id])
     end
-    
+
     # before action
     def load_roles_and_teams
         @roles = Role.all

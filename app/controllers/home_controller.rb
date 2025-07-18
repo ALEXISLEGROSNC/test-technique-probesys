@@ -1,4 +1,4 @@
-require 'csv'
+require "csv"
 
 class HomeController < ApplicationController
   def index
@@ -9,26 +9,26 @@ class HomeController < ApplicationController
     Player.destroy_all
 
     # seeds de prenoms
-    prenoms_csv_file_path = Rails.root.join('db', 'seeds', 'prenoms.csv')
+    prenoms_csv_file_path = Rails.root.join("db", "seeds", "prenoms.csv")
     prenoms = CSV.read(prenoms_csv_file_path, headers: false).flatten
     # seeds de noms d'équipes
-    equipes_csv_file_path = Rails.root.join('db', 'seeds', 'equipes.csv')
+    equipes_csv_file_path = Rails.root.join("db", "seeds", "equipes.csv")
     equipes = CSV.read(equipes_csv_file_path, headers: false).flatten
     # seeds de noms de villes
-    villes_csv_file_path = Rails.root.join('db', 'seeds', 'villes.csv')
+    villes_csv_file_path = Rails.root.join("db", "seeds", "villes.csv")
     villes = CSV.read(villes_csv_file_path, headers: false).flatten
 
     # check que les csv sont suffisants
     if prenoms.size < 11*8 || equipes.size < 8 || villes.size < 8
-      redirect_to root_path, alert: 'Pas assez de données dans les fichiers seeds CSV.'
+      redirect_to root_path, alert: "Pas assez de données dans les fichiers seeds CSV."
       return
     end
 
     roles = Role.all # pour ne pas avoir à les récupérer à chaque fois
-    
+
     8.times do |i|
       team_name = equipes.sample
-      equipes.delete(team_name) 
+      equipes.delete(team_name)
       city = villes.sample
       villes.delete(city)
       team = Team.create(name: team_name, city: city)
@@ -39,11 +39,10 @@ class HomeController < ApplicationController
         Player.create(name: prenom, role: role, team: team)
       end
     end
-    redirect_to root_path, notice: '8 équipes avec 11 joueurs chacune ont été créées avec succès.'
+    redirect_to root_path, notice: "8 équipes avec 11 joueurs chacune ont été créées avec succès."
   end
 
   def tournament # Simulation de tournoi SANS PERSISTENCE EN BASE DE DONNÉES
-    
     teams = Team.all.to_a
     results = {}
     teams.each do |team|
@@ -72,6 +71,6 @@ class HomeController < ApplicationController
     end
 
     # d'abord par points , et ensuite par kills
-    @ranking = results.values.sort_by { |r| [-r[:points], -r[:kills_for]] }
+    @ranking = results.values.sort_by { |r| [ -r[:points], -r[:kills_for] ] }
   end
 end

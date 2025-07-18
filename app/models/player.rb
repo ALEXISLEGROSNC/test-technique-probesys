@@ -9,9 +9,9 @@ class Player < ApplicationRecord
   validates :name, format: { with: /\A[a-zA-Z0-9\s]+\z/, message: "ne peut contenir que des lettres, chiffres et espaces" }
   # ne peux pas avoir plus de 11 joueurs
   validate :team_player_limit
-  
+
   private
-  
+
 def team_player_limit
   return unless team # si il n'y a pas d'equipe associee , pas besoin d'aller plus loin
 
@@ -22,5 +22,4 @@ def team_player_limit
     errors.add(:team, "ne peut pas avoir plus de #{max_count} joueurs")
   end
 end
-
 end

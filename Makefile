@@ -45,6 +45,14 @@ migrate: ## Executer les migrations Rails dans le conteneur web
 console: ## Ouvrir une console Rails dans le conteneur web
 	docker-compose exec web rails console
 
+### TECHNIQUE ###
+
+lint: ## Analyse statique du code Ruby/Rails avec RuboCop
+	docker-compose run --rm web bundle exec rubocop
+
+lint-correct: ## Analyse statique du code Ruby/Rails avec RuboCop + corrections automatiques lorsque c'est possible
+	docker-compose run --rm web bundle exec rubocop -A
+
 ### HELP ###
 
 help: ## Afficher la documentation des deux commandes helplin et helpwin
