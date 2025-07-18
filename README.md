@@ -95,9 +95,9 @@ Ce projet est un défi technique réalisé dans le cadre du processus de recrute
 
 >### Technique
 >- [x]  mettre en place un volume pour ne pas avoir à "re dockeriser" le projet à chaque modification
->- [ ]  ajouter un outil d'analyse statique
->- [ ]  **CI/CD**
->- [ ]  **Tests Unitaires**
+>- [ ]  **analyse statique**
+>- [ ]  **boucle CI/CD github**
+>- [ ]  **tests Unitaires**
 
 
 >[à compléter]
