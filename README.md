@@ -119,7 +119,10 @@ Ce projet est un défi technique réalisé dans le cadre du processus de recrute
 
  - Installer [Docker Desktop](https://www.docker.com/products/docker-desktop) sur la machine.
  - Cloner ce dépôt : <code>git clone 'https://github.com/ALEXISLEGROSNC/test-technique-probesys.git'</code>
- - Lancer les conteneurs <code>docker-compose up --build</code>
+ - installer make
+    - (windows : <code> choco install make </code>)
+    - (linux : <code> sudo apt install make </code>)
+ - builder et lancer les conteneurs avec make (<code> make help </code> !)
  - Accéder à la solution <a href="http://localhost:3000">http://localhost:3000</a>
  - Il y a un volume mis en place dans le docker-compose, donc le code peut être modifié sans avoir à "re-build docker" !
  - **Lancer les tournois !**
