@@ -2,6 +2,7 @@ require "csv"
 
 class HomeController < ApplicationController
   def index
+    @tournament_ready = check_readiness
   end
 
   def populate
@@ -72,5 +73,10 @@ class HomeController < ApplicationController
 
     # d'abord par points , et ensuite par kills
     @ranking = results.values.sort_by { |r| [ -r[:points], -r[:kills_for] ] }
+  end
+
+  def check_readiness
+    teams = Team.all
+    teams.count == 8 && teams.all? { |team| team.players.count == 11 }
   end
 end

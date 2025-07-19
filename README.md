@@ -103,6 +103,9 @@ Ce projet est un défi technique réalisé dans le cadre du processus de recrute
 >- [x]  **integration continue (CI)** des tests et analyses lors de l'integration
 >   - amelioration possible : **deploiement continu**
 
+>### Securité
+> à compléter !
+
 </details>
 
 

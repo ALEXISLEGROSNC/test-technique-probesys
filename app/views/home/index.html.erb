@@ -16,7 +16,7 @@
       <h2 data-i18n="home-ready_to_start">Prêt à commencer ?</h2>
       <p data-i18n="home-click_to_populate">Cliquez sur le bouton ci-dessous pour peupler automatiquement 8 équipes de 11 joueurs chacune.</p>
       <%= button_to 'Peupler Automatiquement', populate_home_index_path, method: :post, data: { i18n: "home-automatically_populate" }, class: 'btn btn-primary btn-lg' %>
-      <%= button_to 'Lancer le tournoi', tournament_path, method: :post, data: { i18n: "home-start_tournament" }, class: 'btn btn-warning btn-lg mt-3' %>
+      <%= button_to 'Lancer le tournoi', tournament_path, method: :post, data: { i18n: "home-start_tournament" }, class: 'btn btn-warning btn-lg mt-3', disabled: !@tournament_ready, form: { disabled: !@tournament_ready } %>
 
     </div>
   </div>
