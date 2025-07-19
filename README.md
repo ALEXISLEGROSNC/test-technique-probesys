@@ -98,8 +98,9 @@ Ce projet est un défi technique réalisé dans le cadre du processus de recrute
 >- [x]  mettre en place un volume pour ne pas avoir à "re dockeriser" le projet à chaque modification
 >- [x]  Repertorier des actions usuelles dans un **Makefile** pour améliorer l'experience de dev + **documentation automatique** (help , helplin , helpwin)
 >- [x]  **analyse statique / lint**
->- [x]  **tests** unitaires pour valider les 3 modeles
+>- [x]  **tests** unitaires avec rspec pour valider les 3 modeles
 >   - amelioration possible : couvrir l'ensemble des fonctionnalités, controlleurs et modeles
+>- [x]  **execution (CI)** des tests et analyses lors de l'integration
 >- [ ]  boucle **CI/CD** GitHub (lancer l'analyse statique et les tests lors d'un push, bloquer une PR de develop à main si les deux ne sont pas ok)
 
 </details>

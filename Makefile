@@ -10,7 +10,7 @@ down: ## Arreter et supprimer les conteneurs
 	docker-compose down
 
 down-db: ## Supprimer les conteneurs et le volume de la base de donnees
-	$(MAKE) down 
+	docker-compose down
 	docker-compose rm -f
 	docker volume rm probesys_db_data || true
 
@@ -21,7 +21,7 @@ stop: ## Arreter les conteneurs sans les supprimer
 	docker-compose stop
 
 reset: ## Reinitialiser tout : stop, supprime, efface le volume DB, rebuild et relance 
-	$(MAKE) down
+	docker-compose down
 	docker-compose rm -f
 	docker volume rm probesys_db_data || true
 	docker-compose up --build
@@ -38,6 +38,9 @@ ps: ## Afficher l'etat des conteneurs
 
 seed: ## Executer les seeds Rails dans le conteneur web
 	docker-compose exec web rails db:seed
+
+bundle-install: ## Executer les seeds Rails dans le conteneur web
+	docker-compose exec web bundle install
 
 migrate: ## Executer les migrations Rails dans le conteneur web
 	docker-compose exec web rails db:migrate
