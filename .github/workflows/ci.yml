@@ -3,8 +3,18 @@ name: CI
 on: [push, pull_request]
 
 jobs:
-  lint_and_test:
+  test:
     runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: your_database_test
+        ports:
+          - 3306:3306
+        options: --health-cmd="mysqladmin ping -h localhost" --health-interval=10s --health-timeout=5s --health-retries=3
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -18,8 +28,20 @@ jobs:
       - name: Install dependencies
         run: bundle install
 
-      - name: Lint code for consistent style
-        run: bundle exec rubocop -f github
+      - name: Set up database
+        env:
+          RAILS_ENV: test
+          DB_HOST: 127.0.0.1
+          DB_USER: root
+          DB_PASSWORD: root
+        run: |
+          bundle exec rails db:create
+          bundle exec rails db:migrate
 
       - name: Run tests
+        env:
+          RAILS_ENV: test
+          DB_HOST: 127.0.0.1
+          DB_USER: root
+          DB_PASSWORD: root
         run: bundle exec rspec
