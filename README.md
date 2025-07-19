@@ -100,8 +100,8 @@ Ce projet est un défi technique réalisé dans le cadre du processus de recrute
 >- [x]  **analyse statique / lint**
 >- [x]  **tests** unitaires avec rspec pour valider les 3 modeles
 >   - amelioration possible : couvrir l'ensemble des fonctionnalités, controlleurs et modeles
->- [x]  **execution (CI)** des tests et analyses lors de l'integration
->- [ ]  boucle **CI/CD** GitHub (lancer l'analyse statique et les tests lors d'un push, bloquer une PR de develop à main si les deux ne sont pas ok)
+>- [x]  **integration continue (CI)** des tests et analyses lors de l'integration
+>   - amelioration possible : **deploiement continu**
 
 </details>
 
