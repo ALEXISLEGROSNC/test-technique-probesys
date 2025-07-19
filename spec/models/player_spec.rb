@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Player, type: :model do
-  
   let(:team) { Team.create(name: "Nom de l'équipe", city: "Ville") }
   let(:role) { Role.create(name: "Tank") }
 

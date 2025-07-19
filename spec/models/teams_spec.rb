@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Team, type: :model do
-    
   it "est valide avec un nom et une ville" do
     team = Team.new(name: "Equipe", city: "Ville")
     expect(team).to be_valid
