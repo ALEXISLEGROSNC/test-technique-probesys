@@ -53,6 +53,9 @@ lint: ## Analyse statique du code Ruby/Rails avec RuboCop
 lint-correct: ## Analyse statique du code Ruby/Rails avec RuboCop + corrections automatiques lorsque c'est possible
 	docker-compose run --rm web bundle exec rubocop -A
 
+run-tests: ## Lance les tests unitaires avec RSPEC
+	rspec --format documentation
+
 ### HELP ###
 
 help: ## Afficher la documentation des deux commandes helplin et helpwin
