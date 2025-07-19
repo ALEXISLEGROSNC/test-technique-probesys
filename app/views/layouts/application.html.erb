@@ -68,21 +68,21 @@
     <div class="row">
       <div class="col-auto border-end p-0 m-0 shadow" style="height: calc(100vh - 56px);">
         <div class="p-3">
-          <h4 class="d-none d-sm-inline-block">Menu</h4>
+          <h4 class="d-none d-sm-inline-block" data-i18n="general-menu">Menu</h4>
           <ul class="nav flex-column">
             <li class="nav-item">
               <%= link_to root_path, class: "nav-link active p-0 mx-0 my-2" do %>
-                <i class="fas fa-home me-2"></i> <span class="d-none d-sm-inline-block">Accueil</span>
+                <i class="fas fa-home me-2"></i> <span class="d-none d-sm-inline-block" data-i18n="general-home">Accueil</span>
               <% end %>
             </li>
             <li class="nav-item">
               <%= link_to teams_path, class: "nav-link active p-0 mx-0 my-2" do %>
-                <i class="fas fa-users me-2"></i> <span class="d-none d-sm-inline-block">Equipes</span>
+                <i class="fas fa-users me-2"></i> <span class="d-none d-sm-inline-block" data-i18n="general-teams">Equipes</span>
               <% end %>
             </li>
             <li class="nav-item">
               <%= link_to players_path, class: "nav-link active p-0 mx-0 my-2" do %>
-                <i class="fas fa-user me-2"></i> <span class="d-none d-sm-inline-block">Joueurs</span>
+                <i class="fas fa-user me-2"></i> <span class="d-none d-sm-inline-block" data-i18n="general-players">Joueurs</span>
               <% end %>
             </li>
           </ul>
@@ -162,7 +162,84 @@
   });
 </script>
 
-<script> // traduction FR / UK
+<script> // traduction FR / UK (i18n)
+  function translateI18nStrings(countryCode) {
+    const elements = document.querySelectorAll('[data-i18n]');
+    const i18nStrings = Array.from(elements).map(element => element.getAttribute('data-i18n'));
+
+    fetch('/translate', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
+      },
+      body: JSON.stringify({
+        countryCode: countryCode,
+        strings: i18nStrings
+      })
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+
+      // mise a jour des elements html
+      elements.forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (data[key]) {
+          if (element.tagName === 'INPUT' && element.type === 'submit') {
+            element.value = data[key];
+          } else {
+            element.textContent = data[key];
+          }
+        } else {
+          console.log(`⚠️ i18n: key | '${key}' not found in translations.`);
+        }
+      });
+    })
+    .catch(error => console.error('Error:', error));
+  }
+
+  function getI18nCookie() {
+  return getCookie('i18n') || 'FR'; // Par défaut, FR
+}
+
+// Fonction pour déclencher la traduction en fonction du code de pays
+function updateTranslationsBasedOnCookie() {
+  
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const translationButtons = document.querySelectorAll('input[name="vbtn-radio"]');
+
+  // selection selon cookie
+  translationButtons.forEach(button => {
+    if (button.id === `vbtn-${getI18nCookie().toLowerCase()}`) {
+      button.checked = true;
+    }
+  });
+
+  // on change traduction
+  translationButtons.forEach(button => {
+    button.addEventListener('change', function() {
+      if (this.checked) {
+        setCookie(
+          'i18n', 
+          this.id.split('-')[1].toUpperCase(),
+          365
+        );
+        translateI18nStrings(getI18nCookie());
+      }
+    });
+  });
+
+  // traduction initiale
+  translateI18nStrings(getI18nCookie());
+});
+
 </script>
 </body>
 </html>

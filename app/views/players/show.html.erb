@@ -1,6 +1,9 @@
-<h1>Joueur : <strong><%= @player.name %></strong></h1>
-<p>
-  <strong>Rôle:</strong>
+<h1><span data-i18n="players-player">Joueur</span> : <strong><%= @player.name %></strong></h1>
+<p class="card-text">
+  <strong data-i18n="players-role">Rôle</strong>
   <%= @player.role.name %>
 </p>
-
+<p class="card-text">
+  <strong data-i18n="players-team">Équipe</strong>
+  <%= @player.team ? @player.team.name : "Aucune équipe" %>
+</p>

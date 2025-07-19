@@ -1,17 +1,17 @@
-<h1>Nouvelle équipe</h1>
+<h1 data-i18n="teams-new_team">Nouvelle équipe</h1>
 
 <%= form_with model: @team do |form| %>
   <div>
-    <%= form.label :name, "Nom"  %><br>
+    <%= form.label :name, "Nom", data: { i18n: "general-name" }  %><br>
     <%= form.text_field :name %>
   </div>
 
   <div>
-    <%= form.label :city, "Ville" %><br>
+    <%= form.label :city, "Ville", data: { i18n: "teams-city" } %><br>
     <%= form.text_field :city %>
   </div>
-
-  <div>
-    <%= form.submit "Créer" %>
+<hr>
+  <div class="d-flex justify-content-center">
+    <%= form.submit "Modifier", data: { i18n: "general-modify" } %>
   </div>
 <% end %>

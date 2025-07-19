@@ -1,17 +1,17 @@
-<h1>Modification équipe</h1>
+<h1 data-i18n="teams-modify_team">Modification équipe</h1>
 
 <%= form_with model: @team, url: team_path(@team), method: :patch do |form| %>
   <div>
-    <%= form.label :name, "Nom"  %><br>
+    <%= form.label :name, "Nom", data: { i18n: "general-name" }  %><br>
     <%= form.text_field :name %>
   </div>
 
   <div>
-    <%= form.label :city, "Ville" %><br>
+    <%= form.label :city, "Ville", data: { i18n: "teams-city" } %><br>
     <%= form.text_field :city %>
   </div>
-
-  <div>
-    <%= form.submit "Modifier" %>
+<hr>
+  <div class="d-flex justify-content-center">
+    <%= form.submit "Modifier", data: { i18n: "general-modify" } %>
   </div>
 <% end %>

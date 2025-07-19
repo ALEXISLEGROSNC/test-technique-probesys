@@ -1,11 +1,11 @@
-<h1>Classement du tournoi</h1>
+<h1 data-i18n="tournament-scores">Classement du tournoi</h1>
 <table class="table table-bordered">
   <thead>
     <tr>
-      <th>Equipe</th>
-      <th>Points</th>
-      <th>Kill reçus</th>
-      <th>Kill marqués</th>
+      <th data-i18n="tournament-team">Equipe</th>
+      <th data-i18n="tournament-points">Points</th>
+      <th data-i18n="tournament-kills_received">Kills reçus</th>
+      <th data-i18n="tournament-kills_scored">Kills marqués</th>
     </tr>
   </thead>
   <tbody>
@@ -20,8 +20,8 @@
   </tbody>
 </table>
 
-<a href="javascript:exportResultsToCSV()"class="btn btn-success mt-3 ms-2">Exporter en CSV <i class="fa-solid fa-table"></i></a>
-<span class="d-none" id="csvFileName">classement_tournoi</span>
+<a href="javascript:exportResultsToCSV()"class="btn btn-success mt-3 ms-2"><span data-i18n="tournament-export_to_csv">Exporter en CSV</span> <i class="fa-solid fa-table"></i></a>
+<span class="d-none" id="csvFileName" data-i18n="tournament-tournament">Tournoi</span>
 <script>
 // pour gérer les caracteres speciaux / accents dans les chaînes qui ne ressortent pas bien
 function normalizeText(str) {

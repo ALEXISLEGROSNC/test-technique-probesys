@@ -1,22 +1,21 @@
-<h1>Modification joueur</h1>
+<h1 data-i18n="players-modify_player">Modification joueur</h1>
 
 <%= form_with model: @player, url: player_path(@player), method: :patch do |form| %>
   <div>
-    <%= form.label :name, "Nom" %><br>
+    <%= form.label :name, "Nom", data: { i18n: "general-name" } %><br>
     <%= form.text_field :name %>
   </div>
 
   <div>
-    <%= form.label :role_id, "Rôle" %><br>
+    <%= form.label :role_id, "Rôle", data: { i18n: "players-role" }%><br>
     <%= form.collection_select :role_id, @roles, :id, :name %>
   </div>
 
   <div>
-    <%= form.label :team_id, "Equipe" %><br>
+    <%= form.label :team_id, "Equipe", data: { i18n: "players-team" } %><br>
     <%= form.collection_select :team_id, @teams, :id, :name, include_blank: "Aucune équipe" %>
   </div>
-
-  <div>
-    <%= form.submit "Modifier" %>
-  </div>
+  <hr/>
+  <div class="d-flex justify-content-center">
+    <%= form.submit "Modifier", data: { i18n: "general-modify" } %>
 <% end %>

@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     root "home#index"
     post "populate", to: "home#populate", as: "populate_home_index" # creation des 8 équipes avec 11 joueurs chacune
     post "tournament", to: "home#tournament", as: :tournament
+    post 'translate', to: 'translate#translate'
     resources :teams
     resources :players
   end

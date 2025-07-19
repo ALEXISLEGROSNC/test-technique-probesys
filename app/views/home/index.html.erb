@@ -1,11 +1,11 @@
 <div class="container my-3">
   <div class="row">
     <div class="col-md-12">
-      <h1><i class="fas fa-home me-2"></i> Accueil</h1>
-      <p class="lead">
-        Organisez des tournois entre équipes de 11 joueurs&nbsp;!
+      <h1><i class="fas fa-home me-2"></i> <span data-i18n="general-home">Accueil</span></h1>
+      <p class="lead" data-i18n="home-lead">
+        Organisez des tournois entre équipes de 11 joueurs!
       </p>
-      <p>
+      <p data-i18n="home-description">
         Cette application vous permet de créer des équipes, d'ajouter des joueurs et de simuler des tournois. 
         Vous pouvez facilement gérer les équipes et les joueurs, et visualiser les résultats des matchs.
     </div>
@@ -13,10 +13,11 @@
 
   <div class="row mt-5">
     <div class="col-md-12 text-center">
-      <h2>Prêt à commencer ?</h2>
-      <p>Cliquez sur le bouton ci-dessous pour peupler automatiquement 8 équipes de 11 joueurs chacune.</p>
-      <%= button_to 'Peupler Automatiquement', populate_home_index_path, method: :post, class: 'btn btn-primary btn-lg' %>
-      <%= button_to 'Lancer le tournoi', tournament_path, method: :post, class: 'btn btn-warning btn-lg mt-3' %>
+      <h2 data-i18n="home-ready_to_start">Prêt à commencer ?</h2>
+      <p data-i18n="home-click_to_populate">Cliquez sur le bouton ci-dessous pour peupler automatiquement 8 équipes de 11 joueurs chacune.</p>
+      <%= button_to 'Peupler Automatiquement', populate_home_index_path, method: :post, data: { i18n: "home-automatically_populate" }, class: 'btn btn-primary btn-lg' %>
+      <%= button_to 'Lancer le tournoi', tournament_path, method: :post, data: { i18n: "home-start_tournament" }, class: 'btn btn-warning btn-lg mt-3' %>
+
     </div>
   </div>
 </div>
